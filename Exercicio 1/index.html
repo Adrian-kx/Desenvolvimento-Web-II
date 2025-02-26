@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário PHP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        form {
+            max-width: 400px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 6px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+        .link-get {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exemplo de Formulário</h1>
+    <form action="destino.php" method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" required>
+
+        <label for="telefone">Telefone:</label>
+        <input type="number" name="telefone" id="telefone" required>
+
+        <label for="email">E-mail:</label>
+        <input type="text" name="email" id="email" required>
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea name="mensagem" id="mensagem" rows="5" required></textarea>
+
+        <button type="submit">Enviar via POST</button>
+    </form>
+
+    <div class="link-get">
+        <a href="/destino.php?nome=Joao&telefone=12345678&email=joao%40exemplo.com&mensagem=Mensagem%20via%20GET">
+            Enviar dados via GET (clique aqui)
+        </a>
+    </div>
+</body>
+</html>
