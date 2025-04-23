@@ -18,7 +18,7 @@
                     <div class="card-body text-center">
                         <p class="h5">Você dormiu <strong>{{ $horasSono }}</strong> horas.</p>
                         <p class="h5">Qualidade do sono: <strong>{{ $qualidadeSono }}</strong></p>
-                        <a href="/Sono" class="btn btn-primary w-100 mt-4">Voltar</a>
+                        <a href="/" class="btn btn-primary w-100 mt-4">Voltar</a>
                     </div>
                 </div>
             </div>

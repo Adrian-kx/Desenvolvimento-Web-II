@@ -18,7 +18,7 @@
                     <div class="card-body text-center">
                         <p class="h5">Seu IMC é: <strong>{{ number_format($imc, 2) }}</strong></p>
                         <p class="h5">Classificação: <strong>{{ $resultado }}</strong></p>
-                        <a href="/IMC" class="btn btn-primary w-100 mt-4">Voltar</a>
+                        <a href="/" class="btn btn-primary w-100 mt-4">Voltar</a>
                     </div>
                 </div>
             </div>

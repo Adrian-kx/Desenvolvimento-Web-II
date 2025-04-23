@@ -17,7 +17,7 @@
                     </div>
                     <div class="card-body text-center">
                         <p class="h5">Custo estimado da viagem: <strong>R$ {{ number_format($custoViagem, 2, ',', '.') }}</strong></p>
-                        <a href="/Viagem" class="btn btn-primary w-100 mt-4">Voltar</a>
+                        <a href="/" class="btn btn-primary w-100 mt-4">Voltar</a>
                     </div>
                 </div>
             </div>

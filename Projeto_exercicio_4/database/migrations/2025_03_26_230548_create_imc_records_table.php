@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('imc_records', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->date('data_vencimento');
             $table->float('peso');
             $table->float('altura');
             $table->float('imc');

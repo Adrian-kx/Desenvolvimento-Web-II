@@ -16,7 +16,6 @@ class IMCController extends Controller
     {
         // Pegando os dados do formulário
         $nome = $request->nome;
-        $data_vencimento = $request->data_vencimento;
         $altura = $request->altura;
         $peso = $request->peso;
 
@@ -27,7 +26,6 @@ class IMCController extends Controller
         // Salvando os dados no banco
         $imcRecord = ImcRecord::create([
             'nome' => $nome,
-            'data_vencimento' => $data_vencimento,
             'peso' => $peso,
             'altura' => $altura,
             'imc' => $imc,

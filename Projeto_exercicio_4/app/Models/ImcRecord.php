@@ -11,7 +11,6 @@ class ImcRecord extends Model
 
     protected $fillable = [
         'nome',
-        'data_vencimento',
         'peso',
         'altura',
         'imc',

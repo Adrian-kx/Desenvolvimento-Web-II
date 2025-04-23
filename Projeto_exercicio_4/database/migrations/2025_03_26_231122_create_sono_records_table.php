@@ -14,10 +14,6 @@ public function up()
 {
     Schema::create('sono_records', function (Blueprint $table) {
         $table->id();
-        $table->string('nome');
-        $table->float('horas_sono');
-        $table->string('qualidade_sono');
-        $table->date('data_nascimento');
         $table->timestamps();
     });
 }
