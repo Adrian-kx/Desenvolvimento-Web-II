@@ -1,48 +1,33 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="text-base font-medium text-gray-700">
             {{ __('Tipo Contatos') }}
         </h2>
-        <br>
-        <div class="mb-4">
-            <a href="{{ route('tipocontatos.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Novo Tipo de Contato
-            </a>
-        </div>
-
+        <a href="{{ route('tipocontatos.create') }}" class="text-blue-600 hover:underline">Novo Tipo de Contato</a>
     </x-slot>
     <script type="text/javascript">
-        function exibe(id) {
-            var descricao = document.getElementById(id);
-            if (descricao.style.display === "none") {
-                descricao.style.display = "block";
-            } else {
-                descricao.style.display = "none";
-            }
+        function toggleDescription(id) {
+            const descricao = document.getElementById(id);
+            descricao.classList.toggle('hidden');
         }
     </script>
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    @foreach ($tipocontatos as $tipocontato)
-                        <div class="mb-4">
-                            <strong onclick="exibe('descricao-{{ $tipocontato->id }}')" class="cursor-pointer">{{ $tipocontato->nome }}</strong>
-                            &nbsp;-&nbsp;
-                            <a href="{{ url("tipocontatos") }}/{{ $tipocontato->id }}/edit" class="bg-green-700 hover:bg-green-900 text-white font-bold py-1 px-2 rounded">Alterar</a>
-                            &nbsp;-&nbsp;
-                            <span class="bg-red-700 hover:bg-red-900 text-white font-bold py-1 px-2 rounded cursor-pointer"
-                            onclick="document.getElementById('form-tipocontatos-excluir-{{$tipocontato->id}}').submit()">Excluir</span>
-                            <form id="form-tipocontatos-excluir-{{$tipocontato->id}}" action="{{route('tipocontatos.destroy',$tipocontato->id)}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                            </form>
-                            <p id="descricao-{{ $tipocontato->id }}" class="mt-2 text-gray-600 descricao" style="display: none;">
-                                {{ $tipocontato->descricao }}
-                            </p>
-                        </div>
-                    @endforeach
-                </div>
+    <div class="py-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="bg-white shadow rounded p-4">
+                @foreach ($tipocontatos as $tipocontato)
+                    <div class="mb-3">
+                        <strong class="cursor-pointer" onclick="toggleDescription('descricao-{{ $tipocontato->id }}')">{{ $tipocontato->nome }}</strong>
+                        <a href="{{ url("tipocontatos") }}/{{ $tipocontato->id }}/edit" class="text-green-600 hover:underline ml-2">Alterar</a>
+                        <span class="text-red-600 hover:underline cursor-pointer ml-2" onclick="document.getElementById('form-tipocontatos-excluir-{{$tipocontato->id}}').submit()">Excluir</span>
+                        <form id="form-tipocontatos-excluir-{{$tipocontato->id}}" action="{{route('tipocontatos.destroy',$tipocontato->id)}}" method="POST" class="hidden">
+                            @csrf
+                            @method('DELETE')
+                        </form>
+                        <p id="descricao-{{ $tipocontato->id }}" class="text-gray-500 mt-2 hidden">
+                            {{ $tipocontato->descricao }}
+                        </p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
